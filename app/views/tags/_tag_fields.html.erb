@@ -1,0 +1,12 @@
+<h4>Tag Section:</h4>
+<%= form.fields_for :tag, (resource.tag || resource.build_tag) do |tag_form| %>
+  <div class="field">
+    <%= tag_form.label :label, "Tag Label" %><br>
+    <%= tag_form.text_field :label, required: true %>
+  </div>
+
+  <div class="field">
+    <%= tag_form.label :service, "Service" %><br>
+    <%= tag_form.text_field :service, required: true %>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+<%= form_with(model: motor) do |form| %>
+  <% if motor.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(motor.errors.count, "error") %> prohibited this motor from being saved:</h2>
+
+      <ul>
+        <% motor.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= render 'tags/tag_fields', resource: motor, form: form %>
+  <div class="field">
+    <%= form.label :power, "Power (kW)" %><br>
+    <%= form.number_field :power, step: '0.1', min: 0.0 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

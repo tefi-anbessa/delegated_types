@@ -1,0 +1,38 @@
+<%= form_with(model: cable) do |form| %>
+  <% if cable.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(cable.errors.count, "error") %> prohibited this cable from being saved:</h2>
+
+      <ul>
+        <% cable.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= render 'tags/tag_fields', resource: cable, form: form %>
+  <div class="field">
+    <%= form.label :length, "Length (meters)" %><br>
+    <%= form.number_field :length, 
+                         step: '0.1', 
+                         min: 0.1, 
+                         value: form.object.length || 1.0, 
+                         required: true,
+                         class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cable_type_id, "Cable Type" %><br>
+    <%= form.collection_select :cable_type_id, 
+                             CableType.all, 
+                             :id, 
+                             :name, 
+                             { selected: form.object.cable_type_id, include_blank: 'Select a cable type' }, 
+                             { required: true, class: 'form-control' } %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

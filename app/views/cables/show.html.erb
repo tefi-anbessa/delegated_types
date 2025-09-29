@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<h3>Cable:</h3>
+<%= render "tags/tag", tag: @cable.tag %>
+<%= render @cable %>
+
+<div>
+  <%= link_to "Edit this cable", edit_cable_path(@cable) %> |
+  <%= link_to "Back to cables", cables_path %>
+
+  <%= button_to "Destroy this cable", @cable, method: :delete %>
+</div>

@@ -1,0 +1,11 @@
+<div id="<%= dom_id tag %>">
+  <p>
+    <strong>Tag:</strong>
+    <% if tag.persisted? %>
+      <%= (link_to tag.label, tag_path(tag)) + " " + tag.service %>
+    <% else %>
+      <%= [tag.label, tag.service].join(" ") %>
+    <% end %>
+  </p>
+
+</div>

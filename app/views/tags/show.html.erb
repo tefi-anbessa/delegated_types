@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @tag %>
+
+<% if @tag.tagable_type.present? && @tag.tagable_id.present? %>
+  <%= link_to "Show #{@tag.tagable_type.underscore.humanize}",
+    eval("#{@tag.tagable_type.underscore}_path(#{@tag.tagable_id})") %>
+<% end %>
+
+<div>
+  <%= link_to "Edit this tag", edit_tag_path(@tag) %> |
+  <%= link_to "Back to tags", tags_path %>
+
+  <%= button_to "Destroy this tag", @tag, method: :delete %>
+</div>

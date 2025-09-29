@@ -1,0 +1,2 @@
+class CableType < ApplicationRecord
+end
