@@ -3,7 +3,7 @@ module Tagable
   extend ActiveSupport::Concern
 
   included do
-    has_one :tag, as: :tagable, dependent: :nullify
+    has_one :tag, as: :tagable, dependent: :nullify, required: true
     accepts_nested_attributes_for :tag
 
     # validates :tag, presence: true
