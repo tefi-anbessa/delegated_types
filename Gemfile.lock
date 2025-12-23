@@ -102,7 +102,7 @@ GEM
       reline (>= 0.3.8)
     drb (2.2.3)
     erb (5.0.2)
-    error_highlight (0.7.0)
+    error_highlight (0.7.1)
     erubi (1.13.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
